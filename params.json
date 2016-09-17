@@ -1,0 +1,6 @@
+{
+  "name": "jjb-api",
+  "tagline": "",
+  "body": "# jjb-api\r\n\r\n\r\n## To start services \r\n\r\n`docker-compose up --build`\r\n\r\n\r\n## To interact with rest api endpoints\r\n\r\n`curl http://localhost:8000/v1/version`\r\n\r\n`curl http://localhost:8000/v1/job -X PUT -H 'content-type: application/json' -d '{\"project\": \"all\"}'`\r\n\r\n`curl http://localhost:8000/v1/job -X POST -H 'content-type: application/json' -d '{\"project\": \"php-app\", \"type\": \"docker\"}'`\r\n\r\n`curl http://localhost:8000/v1/job -X DELETE -H 'content-type: application/json' -d '{\"project\": \"php-app\", \"type\": \"docker\"}'`\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
