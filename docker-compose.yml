@@ -1,0 +1,15 @@
+version: '2'
+services:
+  jjb:
+    build: .
+    ports:
+     - "8000:8000"
+    environment:
+     - GUNICORN_WORKERS=2
+     - GUNICORN_TIMEOUT=300
+    depends_on:
+     - jenkins
+  jenkins:
+    image: jenkins
+    ports:
+     - "8080:8080"

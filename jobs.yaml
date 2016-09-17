@@ -1,0 +1,105 @@
+---
+- job-template:
+    name: '{name}.lint'
+    project-type: freestyle
+    triggers:
+      - github
+    scm:
+      - git:
+          url: https://github.com/jaisubramani/helloworld.git
+          branches:
+            - master
+            - stable
+          browser: githubweb
+          browser-url: https://github.com/jaisubramani/helloworld
+          timeout: 20
+    builders:
+      - shell: echo "running lint job.."
+
+
+- job-template:
+    name: '{name}.build'
+    project-type: freestyle
+    triggers:
+      - github
+    scm:
+      - git:
+          url: https://github.com/jaisubramani/helloworld.git
+          branches:
+            - master
+            - stable
+          browser: githubweb
+          browser-url: https://github.com/jaisubramani/helloworld
+          timeout: 20
+    builders:
+      - shell: echo "running build job.."
+
+
+- job-template:
+    name: '{name}.test'
+    project-type: freestyle
+    triggers:
+      - github
+    scm:
+      - git:
+          url: https://github.com/jaisubramani/helloworld.git
+          branches:
+            - master
+            - stable
+          browser: githubweb
+          browser-url: https://github.com/jaisubramani/helloworld
+          timeout: 20
+    builders:
+      - shell: echo "running test job.."
+
+
+- job-template:
+    name: '{name}.deploy'
+    project-type: freestyle
+    triggers:
+      - github
+    scm:
+      - git:
+          url: https://github.com/jaisubramani/helloworld.git
+          branches:
+            - master
+            - stable
+          browser: githubweb
+          browser-url: https://github.com/jaisubramani/helloworld
+          timeout: 20
+    builders:
+      - shell: echo "running deploy job.."
+
+
+- job-template:
+    name: '{name}.publish'
+    project-type: freestyle
+    triggers:
+      - github
+    scm:
+      - git:
+          url: https://github.com/jaisubramani/helloworld.git
+          branches:
+            - master
+            - stable
+          browser: githubweb
+          browser-url: https://github.com/jaisubramani/helloworld
+          timeout: 20
+    builders:
+      - shell: echo "running publish job.."
+
+
+
+- job-group:
+    name: docker
+    jobs:
+      - '{name}.lint'
+      - '{name}.build'
+      - '{name}.test'
+      - '{name}.publish'
+      - '{name}.deploy'
+
+- job-group:
+    name: ansible
+    jobs:
+      - '{name}.lint'

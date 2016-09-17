@@ -1,0 +1,25 @@
+---
+- project:
+    name: django-app
+    jobs:
+      - docker
+
+- project:
+    name: rails-app
+    jobs:
+      - docker
+
+- project:
+    name: nodejs-app
+    jobs:
+      - docker
+
+- project:
+    name: haproxy
+    jobs:
+      - ansible
+
+- project:
+    name: nginx
+    jobs:
+      - ansible
