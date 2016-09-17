@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">jjb-api</h1>
-      <h2 class="project-tagline"></h2>
+      <h2 class="project-tagline">Run JJB as service</h2>
       <a href="https://github.com/jaisubramani/jjb-api" class="btn">View on GitHub</a>
       <a href="https://github.com/jaisubramani/jjb-api/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/jaisubramani/jjb-api/tarball/master" class="btn">Download .tar.gz</a>
@@ -23,18 +23,32 @@
 <a id="jjb-api" class="anchor" href="#jjb-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>jjb-api</h1>
 
 <h2>
-<a id="to-start-services" class="anchor" href="#to-start-services" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To start services</h2>
+<a id="start-services" class="anchor" href="#start-services" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start services</h2>
 
 <p><code>docker-compose up --build</code></p>
 
 <h2>
-<a id="to-interact-with-rest-api-endpoints" class="anchor" href="#to-interact-with-rest-api-endpoints" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To interact with rest api endpoints</h2>
+<a id="change-jenkins-password" class="anchor" href="#change-jenkins-password" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Change Jenkins password</h2>
+
+<p>login to <code>http://localhost:8080</code> and change <code>admin</code> user password to <code>admin</code></p>
+
+<h2>
+<a id="check-if-jjb-service-is-up" class="anchor" href="#check-if-jjb-service-is-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Check if jjb service is up</h2>
 
 <p><code>curl http://localhost:8000/v1/version</code></p>
 
+<h2>
+<a id="update-all-jobs" class="anchor" href="#update-all-jobs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update all jobs</h2>
+
 <p><code>curl http://localhost:8000/v1/job -X PUT -H 'content-type: application/json' -d '{"project": "all"}'</code></p>
 
+<h2>
+<a id="create-jobs" class="anchor" href="#create-jobs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create jobs</h2>
+
 <p><code>curl http://localhost:8000/v1/job -X POST -H 'content-type: application/json' -d '{"project": "php-app", "type": "docker"}'</code></p>
+
+<h2>
+<a id="delete-jobs" class="anchor" href="#delete-jobs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Delete jobs</h2>
 
 <p><code>curl http://localhost:8000/v1/job -X DELETE -H 'content-type: application/json' -d '{"project": "php-app", "type": "docker"}'</code></p>
 
