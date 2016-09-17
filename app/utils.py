@@ -1,5 +1,3 @@
-from flask import jsonify, make_response
-from flask.ext.httpauth import HTTPBasicAuth
 from subprocess import Popen, PIPE, STDOUT
 from threading import Thread
 from Queue import Queue, Empty
@@ -40,7 +38,7 @@ def enqueue_output(out, queue):
     out.close()
 
 
-def run_command_sync(cmd):
+def run_command_async(cmd):
     cmd = 'touch %s && %s && rm -f %s' % (lock_file, cmd, lock_file)
     logger.info('running command:\n%s' % cmd)
     try:

@@ -52,7 +52,7 @@ def update_all_jobs():
     try:
         logger.info('execute jenkins-jobs to update all projects')
         cmd = 'PYTHONUNBUFFERED=1 %s --flush-cache update --delete-old %s:%s' % (jjb, templates_dir, projects_dir)
-        run_command_sync(cmd)
+        run_command_async(cmd)
         return True
     except Exception, err:
         logger.exception('unable to update all projects')
@@ -64,14 +64,14 @@ class JenkinsJobBuilderVersionAPI(Resource):
 
 class JenkinsJobBuilderJobAPI(Resource):
     def __init__(self):
-        logger.info('processing input JSON parameters for /v1/job')
+        logger.info('process input JSON parameters for /v1/job')
         self.reqparse = reqparse.RequestParser()
         self.reqparse.add_argument('project', type=str, required=True, help='Jenkins Project is missing', location='json')
         self.reqparse.add_argument('type', type=str, location='json')
         super(JenkinsJobBuilderJobAPI, self).__init__()
 
     def post(self):
-        logger.info('handling POST request for /v1/job')
+        logger.info('handle POST request for /v1/job')
         args = self.reqparse.parse_args()
         project = args.project
         project_type = args.type
@@ -88,7 +88,7 @@ class JenkinsJobBuilderJobAPI(Resource):
             return {'message': 'Failed to create ' + project + ' Jenkins jobs'}
 
     def put(self):
-        logger.info('handling PUT request for /v1/job')
+        logger.info('handle PUT request for /v1/job')
         args = self.reqparse.parse_args()
         project = args.project.lower()
         project_type = args.type
@@ -114,7 +114,7 @@ class JenkinsJobBuilderJobAPI(Resource):
             return {'message': 'Failed to update ' + project + ' Jenkins jobs'}
 
     def delete(self):
-        logger.info('handling DELETE request for /v1/job')
+        logger.info('handle DELETE request for /v1/job')
         args = self.reqparse.parse_args()
         project = args.project
         project_type = args.type

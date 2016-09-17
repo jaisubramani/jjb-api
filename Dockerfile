@@ -8,7 +8,9 @@ RUN mkdir -p /etc/gunicorn
 COPY app/*.conf /etc/gunicorn/
 
 RUN mkdir -p /opt/jenkins-job-builder/app
-COPY app/ /opt/jenkins-job-builder/app
+COPY app/*.py /opt/jenkins-job-builder/app/
+COPY app/requirements.txt /opt/jenkins-job-builder/app
+
 RUN pip install --no-cache-dir -r /opt/jenkins-job-builder/app/requirements.txt
 
 RUN mkdir -p /etc/jenkins_jobs/
