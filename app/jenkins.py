@@ -1,6 +1,4 @@
 import os
-import json
-import requests
 from flask.ext.restful import Resource, reqparse
 import logging
 from utils import *
