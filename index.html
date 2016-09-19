@@ -20,7 +20,7 @@
 
     <section class="main-content">
       <h1>
-<a id="jjb-api" class="anchor" href="#jjb-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>jjb-api</h1>
+<a id="jenkins-job-builder-api" class="anchor" href="#jenkins-job-builder-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Jenkins Job Builder API</h1>
 
 <h2>
 <a id="start-services" class="anchor" href="#start-services" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start services</h2>
@@ -28,7 +28,7 @@
 <p><code>docker-compose up --build</code></p>
 
 <h2>
-<a id="change-jenkins-password" class="anchor" href="#change-jenkins-password" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Change Jenkins password</h2>
+<a id="change-jenkins-default-password" class="anchor" href="#change-jenkins-default-password" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Change Jenkins default password</h2>
 
 <p>login to <code>http://localhost:8080</code> and change <code>admin</code> user password to <code>admin</code></p>
 
@@ -46,6 +46,11 @@
 <a id="create-jobs" class="anchor" href="#create-jobs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create jobs</h2>
 
 <p><code>curl http://localhost:8000/v1/job -X POST -H 'content-type: application/json' -d '{"project": "php-app", "type": "docker"}'</code></p>
+
+<h2>
+<a id="update-jobs" class="anchor" href="#update-jobs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update jobs</h2>
+
+<p><code>curl http://localhost:8000/v1/job -X PUT -H 'content-type: application/json' -d '{"project": "php-app", "type": "docker"}'</code></p>
 
 <h2>
 <a id="delete-jobs" class="anchor" href="#delete-jobs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Delete jobs</h2>
