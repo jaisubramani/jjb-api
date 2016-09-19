@@ -1,10 +1,10 @@
-# jjb-api
+# Jenkins Job Builder API
 
 ## Start services
 
 `docker-compose up --build`
 
-## Change Jenkins password
+## Change Jenkins default password
 
 login to `http://localhost:8080` and change `admin` user password to `admin`
 
@@ -19,6 +19,10 @@ login to `http://localhost:8080` and change `admin` user password to `admin`
 ## Create jobs
 
 `curl http://localhost:8000/v1/job -X POST -H 'content-type: application/json' -d '{"project": "php-app", "type": "docker"}'`
+
+## Update jobs
+
+`curl http://localhost:8000/v1/job -X PUT -H 'content-type: application/json' -d '{"project": "php-app", "type": "docker"}'`
 
 ## Delete jobs
 
